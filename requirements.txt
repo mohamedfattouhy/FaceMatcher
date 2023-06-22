@@ -1,0 +1,8 @@
+requests
+opencv-python
+matplotlib
+numpy==1.21.0
+protobu==3.9.2
+tensorflow==2.8.0
+tensorflow-gpu==2.8.0
+keras==2.8.0
