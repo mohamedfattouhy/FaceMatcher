@@ -1,7 +1,11 @@
 # IMANAGE ENVIRONNEMENT
 import os
+import uuid
 import matplotlib.pyplot as plt
 import tensorflow as tf
+from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image_dataset import image_dataset_from_directory
+from keras.preprocessing.image import save_img
 
 
 def preprocess(file_path):
@@ -68,3 +72,40 @@ def create_dataset(anchor_dataset, positive_dataset, negative_dataset):
     dataset = positives.concatenate(negatives)
 
     return dataset
+
+
+def generate_new_facial_images(data_dir, output_dir, n_new_images=10):
+
+    # generate new images from the originals
+    datagen = ImageDataGenerator(
+        # Random image rotation in the range -20 to 20 degrees
+        rotation_range=20,
+        # Random horizontal image shift within the range -0.1 to 0.1 of total width
+        width_shift_range=0.1,
+        # Random vertical shift of the image in the range -0.1 to 0.1 of the total height
+        height_shift_range=0.1,
+        # Random horizontal flipping of the image
+        horizontal_flip=True
+    )
+
+    # Load existing images
+    image_data = image_dataset_from_directory(
+        data_dir,
+        labels=None,
+        # Resize images to 100x100px
+        image_size=(100, 100),
+        # Use a batch size of 1 to generate one image at a time
+        batch_size=1,
+        shuffle=True
+    )
+
+    for images in image_data:
+        for new_image in range(1, n_new_images):
+
+            # Apply data augmentation transformations
+            new_image_aug = datagen.flow(images, batch_size=1)
+            new_image_reshape = new_image_aug[0].reshape(100, 100, 3)
+
+            filename = f'augmented_image_{uuid.uuid1()}.jpg'
+            # Save the augmented images
+            save_img(output_dir + '/' + filename, new_image_reshape)
