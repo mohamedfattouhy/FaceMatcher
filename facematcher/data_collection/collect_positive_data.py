@@ -7,15 +7,15 @@ from keras.preprocessing.image_dataset import image_dataset_from_directory
 from keras.preprocessing.image import save_img
 
 
-def CapturePositiveImages(anchor_path, positvie_path):
+def capture_positive_images(anchor_path, positvie_path):
 
     # Establish a connection to the webcam
     cap = cv2.VideoCapture(0)  # Don't hesitate to try several values (1,2,...) if your webcam don't turn on
 
     print()
-    print("""Press \'a\' to capture anchor image \n
-          Press \'p\' to capture positive image \n
-          Press \'q\' to quit""")
+    print("Press \'a\' to capture anchor image \n"
+          "Press \'p\' to capture positive image \n"
+          "Press \'q\' to quit")
     print()
 
     while cap.isOpened():
@@ -25,7 +25,7 @@ def CapturePositiveImages(anchor_path, positvie_path):
         frame = frame[120:120+250, 200:200+250, :]
 
         # Collect anchors images by pressing 'a'
-        if cv2.waitKey(1) & 0XFF == ord('a'):
+        if cv2.waitKey(10) & 0XFF == ord('a'):
 
             # Create unique file path (uuid is used to generate unique image name)
             imgname = os.path.join(anchor_path, '{}.jpg'.format(uuid.uuid1()))
@@ -33,7 +33,7 @@ def CapturePositiveImages(anchor_path, positvie_path):
             cv2.imwrite(imgname, frame)
 
         # Collect positives by pressing 'p'
-        if cv2.waitKey(1) & 0XFF == ord('p'):
+        if cv2.waitKey(10) & 0XFF == ord('p'):
 
             # Create the unique file path
             imgname = os.path.join(positvie_path, '{}.jpg'.format(uuid.uuid1()))
