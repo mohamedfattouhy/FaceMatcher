@@ -1,0 +1,27 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "facematcher"
+version = "0.0.1"
+authors = [
+  {name="Fattouhy Mohamed"},
+]
+description = "Machine learning project for facial recognition"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OPEN LICENCE 2.0/LICENCE OUVERTE 2.0",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.urls]
+"Homepage" = "https://github.com/mohamedfattouhy/FaceMatcher"
