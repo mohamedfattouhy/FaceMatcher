@@ -55,6 +55,10 @@ def train_step(batch):
 
 def train(data, epochs):
 
+    print()
+    print('The model is in training...')
+    print()
+
     # Loop through epochs
     for epoch in range(1, epochs+1):
         print('\n Epoch {}/{}'.format(epoch, epochs))

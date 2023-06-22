@@ -71,6 +71,10 @@ def create_dataset(anchor_dataset, positive_dataset, negative_dataset):
     # concatenate positves and negatives images in one dataset
     dataset = positives.concatenate(negatives)
 
+    print()
+    print("The dataset has been created")
+    print()
+
     return dataset
 
 
@@ -109,3 +113,7 @@ def generate_new_facial_images(data_dir, output_dir, n_new_images=10):
             filename = f'augmented_image_{uuid.uuid1()}.jpg'
             # Save the augmented images
             save_img(output_dir + '/' + filename, new_image_reshape)
+
+    print()
+    print("New images have been created")
+    print()
