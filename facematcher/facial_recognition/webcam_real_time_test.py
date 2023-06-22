@@ -1,8 +1,10 @@
 # IMANAGE ENVIRONNEMENT
 import os
+import shutil
 import cv2
 import numpy as np
 from facematcher.data_collection.preprocessing import preprocess
+from facematcher.data_collection.create_folder import create_folder
 
 
 # Verification function
@@ -46,8 +48,16 @@ def verify(model, detection_threshold, verification_threshold):
 
 def real_time_facial_recognition(model):
 
+    # create the directories required to store images for real-time testing
+    create_folder('application_data', ['input_image', 'verification_images'])
+
+    # we copy all positves images to application_data/verification_images
+    EX_PATH = os.path.join('data', 'positive')
+    NEW_PATH = os.path.join('application_data', 'verification_images')
+    shutil.copytree(EX_PATH, NEW_PATH, dirs_exist_ok=True)
+
     # Webcam connection
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0) # Don't hesitate to try several values (1,2,...) if your webcam don't turn on
     print()
     print('Press \'i\' to capture an input image and press \'q\' to quit')
     print()
@@ -70,6 +80,7 @@ def real_time_facial_recognition(model):
             _, verified = verify(model, 0.9, 0.7)
             print('Verified: ', verified)
 
+        # Stop session by pressing 'q'
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
 
