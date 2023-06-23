@@ -28,9 +28,9 @@ If you prefer, you can also install the `facematcher` package like this: `pip in
 The project is structured as follows:  
 
 - `data/`:  Automatically created directory that will contains the dataset used for training.
-- `facematcher/data_cllection/`: Contains scripts for data collection and pre-processing.
-- `facematcher/siamese_neural_network`: Includes the machine learning models for face recognition.
-- `facematcher/facial_recognition`: Contains a script to enable the model to be used in real time for facial recognition
+- `facematcher/data_collection/`: Contains scripts for data collection and pre-processing.
+- `facematcher/siamese_neural_network/`: Includes the machine learning models for face recognition.
+- `facematcher/facial_recognition/`: Contains a script to enable the model to be used in real time for facial recognition
 - `main.py`: This file is used to carry out all the steps required to test the facial recognition model in real-time.
 
 ## Getting Started
