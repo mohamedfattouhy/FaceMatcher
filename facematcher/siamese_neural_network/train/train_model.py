@@ -1,14 +1,9 @@
-# IMANAGE ENVIRONNEMENT
+# MANAGE ENVIRONNEMENT
 import os
 import tensorflow as tf
 from keras.losses import BinaryCrossentropy
 from keras.optimizer_v2 import adam
 from facematcher.siamese_neural_network.build.build_model import siamese_model
-from facematcher.data_collection.preprocessing import preprocess
-
-
-def preprocess_twin(input_img, validation_img, label):
-    return (preprocess(input_img), preprocess(validation_img), label)
 
 
 # Import de the model

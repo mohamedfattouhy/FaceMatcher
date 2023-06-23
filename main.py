@@ -1,4 +1,4 @@
-# IMANAGE ENVIRONNEMENT
+# MANAGE ENVIRONNEMENT
 import os
 import tensorflow as tf
 from keras.metrics import Precision, Recall
@@ -7,7 +7,7 @@ from facematcher.facial_recognition.webcam_real_time_test import real_time_facia
 from facematcher.data_collection.collect_positive_data import capture_positive_images
 from facematcher.data_collection.load_negative_data import uncompress_and_move_lfw_dataset
 from facematcher.data_collection.preprocessing import create_dataset, generate_new_facial_images
-from facematcher.siamese_neural_network.train.train_model import preprocess_twin
+from facematcher.data_collection.preprocessing import preprocess_twin
 from facematcher.siamese_neural_network.build.build_model import L1Distance
 from facematcher.siamese_neural_network.train.train_model import train
 from facematcher.siamese_neural_network.build.build_model import siamese_model

@@ -1,4 +1,4 @@
-# IMANAGE ENVIRONNEMENT
+# MANAGE ENVIRONNEMENT
 import os
 import uuid
 import cv2

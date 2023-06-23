@@ -1,4 +1,4 @@
-# IMANAGE ENVIRONNEMENT
+# MANAGE ENVIRONNEMENT
 import os
 import requests
 import tarfile

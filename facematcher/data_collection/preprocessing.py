@@ -1,4 +1,4 @@
-# IMANAGE ENVIRONNEMENT
+# MANAGE ENVIRONNEMENT
 import os
 import uuid
 import matplotlib.pyplot as plt
@@ -24,6 +24,10 @@ def preprocess(file_path):
 
     # Return pre-processed image
     return img
+
+
+def preprocess_twin(input_img, validation_img, label):
+    return (preprocess(input_img), preprocess(validation_img), label)
 
 
 # set to True to see an example of before/after pre-processed images
