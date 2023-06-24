@@ -1,6 +1,19 @@
-# FaceMatcher
+<div align="center">
 
-Project description: This project is an enhanced version of the FaceRecognition repository by [nicknochnack](https://github.com/nicknochnack/FaceRecognition/tree/main). It aims to refactor and improve the code base by adding additional structure, comments and explanations about building machine learning models using TensorFlow and Keras. This project gave me the opportunity to learn how to create a complete machine learning model with Tensorflow and Keras.
+## FaceMacther
+
+<br>
+
+<img src="static/facial_recognition.jpg" alt="Facial Recognition" width="200px" height="250px">
+
+</div>
+
+<br>
+
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/mohamedfattouhy/FaceMatcher/ci.yaml)
+
+
+**Project description:** This project is an enhanced version of the FaceRecognition repository by [nicknochnack](https://github.com/nicknochnack/FaceRecognition/tree/main). It aims to refactor and improve the code base by adding additional structure, comments and explanations about building machine learning models using TensorFlow and Keras. This project gave me the opportunity to learn how to create a complete machine learning model with Tensorflow and Keras.
 
 ## Siamese Neural Networks for Face Recognition
 
@@ -13,6 +26,16 @@ This project leverages Siamese neural networks to perform face recognition. The 
 - **Negatives**: Negative images, on the other hand, depict different individuals faces. The network is trained to understand that these images do not match the anchor images and should be distinguished as different individuals.
 
 Once the model is trained, we use a **verification** directory containing images from the **positives** directory. Each time an image is given as input to the model (using the webcam, for example), this image is compared with all the images in the **verification** directory, and a verification threshold is set above which we declare whether the input image is indeed the person in question.
+
+<br>
+
+<div align="center">
+
+<img src="static/siamese_network.PNG" alt="Siamese Network" width="500px" height="200px">
+
+</div>
+
+<br>
 
 ## Installation
 
