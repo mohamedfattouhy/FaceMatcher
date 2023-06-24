@@ -17,10 +17,10 @@ class TestSiamseseModel(unittest.TestCase):
         self.POS_PATH = os.path.join('tests', 'data_test', 'positive')
         self.NEG_PATH = os.path.join('tests', 'data_test', 'negative')
 
-        self.anchor_dataset = tf.data.Dataset.list_files(self.ANC_PATH+'\*.jpg')
-        self.positive_dataset = tf.data.Dataset.list_files(self.POS_PATH+'\*.jpg')
-        self.negative_dataset = tf.data.Dataset.list_files(self.NEG_PATH+'\*.jpg')
-
+        self.anchor_dataset = tf.data.Dataset.list_files(os.path.join(self.ANC_PATH, r'*.jpg'))
+        self.positive_dataset = tf.data.Dataset.list_files(os.path.join(self.POS_PATH, r'*.jpg'))
+        self.negative_dataset = tf.data.Dataset.list_files(os.path.join(self.NEG_PATH, r'*.jpg'))
+    
         self.data = create_dataset(self.anchor_dataset,
                                    self.positive_dataset,
                                    self.negative_dataset)

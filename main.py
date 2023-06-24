@@ -29,9 +29,9 @@ capture_positive_images(anchor_path=ANC_PATH, positvie_path=POS_PATH)
 # Load negatives images from http://vis-www.cs.umass.edu/lfw/#download
 uncompress_and_move_lfw_dataset()
 
-anchor_dataset = tf.data.Dataset.list_files(ANC_PATH+'\*.jpg')
-positive_dataset = tf.data.Dataset.list_files(POS_PATH+'\*.jpg')
-negative_dataset = tf.data.Dataset.list_files(NEG_PATH+'\*.jpg')
+anchor_dataset = tf.data.Dataset.list_files(os.path.join(ANC_PATH, r'*.jpg'))
+positive_dataset = tf.data.Dataset.list_files(os.path.join(POS_PATH, r'*.jpg'))
+negative_dataset = tf.data.Dataset.list_files(os.path.join(NEG_PATH, r'*.jpg'))
 
 data = create_dataset(anchor_dataset, positive_dataset, negative_dataset)
 
