@@ -2,8 +2,6 @@
 
 ## FaceMacther
 
-<br>
-
 <img src="static/facial_recognition.jpg" alt="Facial Recognition" width="200px" height="250px">
 
 </div>
