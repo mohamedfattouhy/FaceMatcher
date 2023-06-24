@@ -8,7 +8,16 @@ from facematcher.data_collection.create_folder import create_folder
 
 
 # Verification function
-def verify(model, detection_threshold, verification_threshold):
+def verify(model, detection_threshold: float,
+           verification_threshold: float) -> tuple:
+
+    if not (isinstance(detection_threshold, float) and
+            isinstance(verification_threshold, float)):
+        raise TypeError("The threshold parameter must be of type float.")
+
+    if (detection_threshold < 0 or detection_threshold > 1) or\
+       (verification_threshold < 0 or verification_threshold > 1):
+        raise ValueError("The threshold parameter must be between 0 and 1.")
 
     # Build results list
     results = []
@@ -46,7 +55,7 @@ def verify(model, detection_threshold, verification_threshold):
     return results, verified
 
 
-def real_time_facial_recognition(model):
+def real_time_facial_recognition(model) -> None:
 
     # create the directories required to store images for real-time testing
     create_folder('application_data', ['input_image', 'verification_images'])

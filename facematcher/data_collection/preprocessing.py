@@ -8,7 +8,7 @@ from keras.preprocessing.image_dataset import image_dataset_from_directory
 from keras.preprocessing.image import save_img
 
 
-def preprocess(file_path):
+def preprocess(file_path: str) -> tf.image:
 
     # Read in image from file path
     byte_img = tf.io.read_file(file_path)
@@ -26,7 +26,7 @@ def preprocess(file_path):
     return img
 
 
-def preprocess_twin(input_img, validation_img, label):
+def preprocess_twin(input_img: str, validation_img, label: str) -> tuple:
     return (preprocess(input_img), preprocess(validation_img), label)
 
 
@@ -82,7 +82,8 @@ def create_dataset(anchor_dataset, positive_dataset, negative_dataset):
     return dataset
 
 
-def generate_new_facial_images(data_dir, output_dir, n_new_images=10):
+def generate_new_facial_images(data_dir: str, output_dir: str,
+                               n_new_images: int = 10):
 
     # generate new images from the originals
     datagen = ImageDataGenerator(

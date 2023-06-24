@@ -5,7 +5,7 @@ import tarfile
 import shutil
 
 
-def uncompress_and_move_lfw_dataset():
+def uncompress_and_move_lfw_dataset() -> None:
 
     # URL to load data from
     url = 'http://vis-www.cs.umass.edu/lfw/lfw.tgz'

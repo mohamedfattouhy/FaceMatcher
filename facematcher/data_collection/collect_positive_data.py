@@ -4,7 +4,7 @@ import uuid
 import cv2
 
 
-def capture_positive_images(anchor_path, positvie_path):
+def capture_positive_images(anchor_path: str, positvie_path: str) -> None:
 
     # Establish a connection to the webcam
     cap = cv2.VideoCapture(0)  # Don't hesitate to try several values (1,2,...) if your webcam don't turn on

@@ -22,7 +22,7 @@ class L1Distance(Layer):
         return tf.math.abs(input_embedding - validation_embedding)
 
 
-def make_embedding():
+def make_embedding() -> Model:
 
     # Input (image of size 100x100px)
     input = Input(shape=(100, 100, 3), name='input_image')
@@ -47,7 +47,7 @@ def make_embedding():
     return Model(inputs=[input], outputs=[dense], name='embedding')
 
 
-def siamese_model():
+def siamese_model() -> Model:
 
     # Anchor image input in the network
     input_image = Input(name='input_img', shape=(100, 100, 3))

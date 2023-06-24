@@ -48,7 +48,7 @@ def train_step(batch):
     return loss
 
 
-def train(data, epochs):
+def train(data, epochs: int = 10) -> None:
 
     print()
     print('The model is in training...')
