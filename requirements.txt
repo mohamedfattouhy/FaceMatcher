@@ -1,5 +1,5 @@
 requests
-opencv-python
+opencv-python==4.7.0.72
 matplotlib
 numpy==1.21.0
 protobuf==3.9.2
