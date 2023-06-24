@@ -1,0 +1,28 @@
+name: Build, install and test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install pytest
+          python -m pip install -r  requirements.txt
+          python -m pip install .
+      - name: Check package installation
+        run: |
+          python -c "import facematcher"
+      - name: Run tests with pytest
+        run: |
+          python -m pytest tests/test_preprocess_data.py
+          python -m pytest tests/test_siamese_model.py
