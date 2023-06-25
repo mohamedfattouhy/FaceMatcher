@@ -25,6 +25,14 @@ checkpoint = tf.train.Checkpoint(opt=opt, siamese_model=siamese_model)
 # execution using TensorFlow's low-level features.
 @tf.function
 def train_step(batch):
+    """trains the siamese model on a batch
+
+    Args:
+        batch: batch of a dataset
+
+    Returns:
+        loss (float): the loss associated with training on the batch
+    """
 
     # Record all of our operations
     with tf.GradientTape() as tape:
@@ -49,6 +57,15 @@ def train_step(batch):
 
 
 def train(data, epochs: int = 10) -> None:
+    """trains the siamese model on the supplied data set with the specified number of epochs
+
+    Args:
+        data (dataset): data set for training the siamese model
+        epochs (int): the number of epochs, defaut is 10
+
+    Returns:
+        None
+    """
 
     print()
     print('The model is in training...')

@@ -9,6 +9,14 @@ from keras.preprocessing.image import save_img
 
 
 def preprocess(file_path: str) -> tf.image:
+    """pre-process images by resizing them to 100x100px and normalizing them
+
+    Args:
+        file_path (str): path to the image
+
+    Returns:
+        tf.image: the preprocessed image
+    """
 
     # Read in image from file path
     byte_img = tf.io.read_file(file_path)
@@ -26,7 +34,17 @@ def preprocess(file_path: str) -> tf.image:
     return img
 
 
-def preprocess_twin(input_img: str, validation_img, label: str) -> tuple:
+def preprocess_twin(input_img: str, validation_img, label: int) -> tuple:
+    """pre-process a pair of images.
+
+    Args:
+        input_img (str): path to the input image (anchor)
+        validation_img (str): path to the validation image (positive or negative)
+        label (int): 0 (different) or 1 (same)
+
+    Returns:
+        tuple (length 3): the pre-processed images and associated label
+    """
     return (preprocess(input_img), preprocess(validation_img), label)
 
 
@@ -64,6 +82,16 @@ if display_images:
 # images (anchors) and positives or negatives images with
 # the corresponding label (0: same, 1: different)
 def create_dataset(anchor_dataset, positive_dataset, negative_dataset):
+    """create a concatenated dataset from several datasets
+
+    Args:
+        anchor_dataset (dataset): dataset containing anchors images
+        positive_dataset (dataset): dataset containing positives images
+        negative_dataset (dataset): dataset containing negatives images
+
+    Returns:
+        dataset: the concatenated dataset
+    """
 
     positives = tf.data.Dataset.zip((anchor_dataset, positive_dataset,
                                     tf.data.Dataset.from_tensor_slices(tf.ones(len(anchor_dataset)))
@@ -84,6 +112,20 @@ def create_dataset(anchor_dataset, positive_dataset, negative_dataset):
 
 def generate_new_facial_images(data_dir: str, output_dir: str,
                                n_new_images: int = 10):
+    """create new images from the original ones
+
+    Args:
+        data_dir (str): path to load original images from
+        output_dir (str): path to save the new images
+        n_new_images (int): number of images to create, default is 10
+
+    Returns:
+        None
+
+    >>> data_dir_path = os.path.join('data', 'anchor')
+        output_dir_path = os.path.join('data', 'anchor')
+        generate_new_facial_images(data_dir=data_dir_path, output_dir=output_dir_path)
+    """
 
     # generate new images from the originals
     datagen = ImageDataGenerator(

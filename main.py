@@ -4,7 +4,7 @@ import tensorflow as tf
 from keras.metrics import Precision, Recall
 from facematcher.data_collection.create_folder import create_folder
 from facematcher.facial_recognition.webcam_real_time_test import real_time_facial_recognition
-from facematcher.data_collection.collect_positive_data import capture_positive_images
+from facematcher.data_collection.collect_positive_data import capture_positives_images
 from facematcher.data_collection.load_negative_data import uncompress_and_move_lfw_dataset
 from facematcher.data_collection.preprocessing import create_dataset, generate_new_facial_images
 from facematcher.data_collection.preprocessing import preprocess_twin
@@ -24,7 +24,7 @@ POS_PATH = os.path.join('data', 'positive')
 NEG_PATH = os.path.join('data', 'negative')
 
 # Load positives images
-capture_positive_images(anchor_path=ANC_PATH, positvie_path=POS_PATH)
+capture_positives_images(anchor_path=ANC_PATH, positvie_path=POS_PATH)
 
 # Load negatives images from http://vis-www.cs.umass.edu/lfw/#download
 uncompress_and_move_lfw_dataset()
@@ -103,10 +103,10 @@ print("Recall: ", recall.result().numpy())
 print("Precision: ", precision.result().numpy())
 print()
 
-# Save weights
-path_save_model = os.path.join('facematcher', 'siamese_neural_network',
-                               'model', 'siamesemodel.h5')
-siamese_model.save(path_save_model)
+# # Save weights
+# path_save_model = os.path.join('facematcher', 'siamese_neural_network',
+#                                'model', 'siamesemodel.h5')
+# siamese_model.save(path_save_model)
 
 
 # Load the trained model

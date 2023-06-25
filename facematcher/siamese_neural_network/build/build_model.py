@@ -23,6 +23,14 @@ class L1Distance(Layer):
 
 
 def make_embedding() -> Model:
+    """create a neural network with convolution layers
+
+    Args:
+        None
+
+    Returns:
+        keras.models.Model: a convolutional neural network that takes an input image and provides densely-connected NN layer as output
+    """
 
     # Input (image of size 100x100px)
     input = Input(shape=(100, 100, 3), name='input_image')
@@ -48,6 +56,15 @@ def make_embedding() -> Model:
 
 
 def siamese_model() -> Model:
+    """create a siamese neural network from a convolutional
+    neural network that takes a single input
+
+    Args:
+        None
+
+    Returns:
+        keras.models.Model: a siamese neural network that takes two input images and provides similarity as output
+    """
 
     # Anchor image input in the network
     input_image = Input(name='input_img', shape=(100, 100, 3))

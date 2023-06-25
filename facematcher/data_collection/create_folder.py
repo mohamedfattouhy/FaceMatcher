@@ -4,7 +4,19 @@ import os
 
 
 def create_folder(dirpath_name: str, subdir_names: list) -> None:
-    """create directories and sub-directories for data"""
+    """create directories and sub-directories for data
+
+    Args:
+        dirpath_name (str): The directory name
+        subdir_names (list of str): The subdirectories names
+
+    Returns:
+        None
+
+    Example:
+        >>> create_folder(dirpath_name='data',
+            subdir_names=["anchor", "positive", "negative"])
+    """
 
     dirpath = Path(os.path.join(dirpath_name))
 

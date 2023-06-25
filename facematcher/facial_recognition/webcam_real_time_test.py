@@ -10,6 +10,26 @@ from facematcher.data_collection.create_folder import create_folder
 # Verification function
 def verify(model, detection_threshold: float,
            verification_threshold: float) -> tuple:
+    """checks whether an input image matches the person for whom the model has been trained to recognize
+
+    Args:
+        model: trained machine learning model
+
+        detection_threshold (float): detection threshold (between 0 and 1), where detection is a
+        number of positive predictions (similarity > detection_threshold)
+
+        verification_threshold (float): verification threshold (between 0 and 1), where verification is
+        the proportion of positives predictions
+
+    Returns:
+        tuple (length 2): list of similarities and a boolean resulting from the comparison
+        between the proportion of positives predictions and verification_threshold
+
+    >>> model_path = os.path.join('facematcher', 'siamese_neural_network',
+                          'model', 'siamesemodel.h5')
+        load_model = tf.keras.models.load_model(model_path)
+        results, verified = verify(load_model, 0.9, 0.7)
+    """
 
     if not (isinstance(detection_threshold, float) and
             isinstance(verification_threshold, float)):
@@ -56,6 +76,19 @@ def verify(model, detection_threshold: float,
 
 
 def real_time_facial_recognition(model) -> None:
+    """tests a trained model using real-time input images from the webcam
+
+    Args:
+        model: trained machine learning model
+
+    Returns:
+        None
+
+    >>> model_path = os.path.join('facematcher', 'siamese_neural_network',
+                          'model', 'siamesemodel.h5')
+        load_model = tf.keras.models.load_model(model_path)
+        real_time_facial_recognition(model=load_model)
+    """
 
     # create the directories required to store images for real-time testing
     create_folder('application_data', ['input_image', 'verification_images'])
