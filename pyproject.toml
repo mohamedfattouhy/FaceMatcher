@@ -1,7 +1,14 @@
 [build-system]
 requires = [
     "setuptools>=42",
-    "wheel"
+    "requests",
+    "opencv-python==4.7.0.72",
+    "matplotlib",
+    "numpy==1.21.2",
+    "protobuf==3.9.2",
+    "tensorflow==2.8.0",
+    "tensorflow-gpu==2.8.0",
+    "keras==2.8.0"
 ]
 build-backend = "setuptools.build_meta"
 
