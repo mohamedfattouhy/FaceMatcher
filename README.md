@@ -29,7 +29,7 @@ Once the model is trained, we use a **verification** directory containing images
 
 <div align="center">
 
-<img src="static/siamese_network.PNG" alt="Siamese Network" width="500px" height="200px">
+<img src="static/siamese_neural_network.PNG" alt="Siamese Network" width="500px" height="200px">
 
 </div>
 
