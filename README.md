@@ -42,7 +42,8 @@ To use this project, follow these steps:
 1. Clone the repository: `git clone https://github.com/mohamedfattouhy/FaceMatcher.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
 
-If you prefer, you can also install the `facematcher` package like this: `pip install git+https://github.com/mohamedfattouhy/FaceMatcher`
+If you prefer, you can also install the `facematcher` package like this:  
+`pip install git+https://github.com/mohamedfattouhy/FaceMatcher`
 
 ## Project Structure
 
@@ -57,7 +58,7 @@ The project is structured as follows:
 ## Getting Started
 
 1. Navigate to the project directory: `cd path/to/FaceMatcher`
-2. Run the following command line to be able to use a real-time facial recognition test: `python main.py` 
+2. Run the following command line to be able to use a real-time facial recognition test: `python main.py`
 
 
 ## Usage
