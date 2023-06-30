@@ -11,7 +11,7 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/mohamedfattouhy/FaceMatcher/ci.yaml)
 
 
-**Project description:** This project is an enhanced version of the FaceRecognition repository by [nicknochnack](https://github.com/nicknochnack/FaceRecognition/tree/main). It aims to refactor and improve the code base by adding additional structure, comments and explanations about building machine learning models using TensorFlow and Keras. This project gave me the opportunity to learn how to create a complete machine learning model with Tensorflow and Keras.
+**Project description:** This project is an enhanced version of the FaceRecognition repository by [nicknochnack](https://github.com/nicknochnack/FaceRecognition/tree/main). It aims to refactor and improve the code base by adding additional structure, comments and explanations about building machine learning models using TensorFlow and Keras. In addition, I structured this project so that it could be installed as a package to enable a step-by-step facial recognition model to be set up. I also added a continuous integration file to define an automated workflow for testing and installing the package. This project gave me the opportunity to learn how to create a complete machine learning model with Tensorflow and Keras.
 
 ## Siamese Neural Networks for Face Recognition
 
@@ -29,7 +29,7 @@ Once the model is trained, we use a **verification** directory containing images
 
 <div align="center">
 
-<img src="static/siamese_neural_network.PNG" alt="Siamese Network" width="500px" height="200px">
+<img src="static/siamese_neural_network.PNG" alt="Siamese Neural Network" width="500px" height="200px">
 
 </div>
 
